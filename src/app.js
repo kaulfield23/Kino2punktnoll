@@ -27,12 +27,16 @@ app.get("/movies/:movieId", async (req, res) => {
   if (movie) {
     res.render("./partials/movie", { movie });
   } else {
-    res.status(404).render("404");
+    res.status(404).render("./partials/404");
   }
 });
 
 app.get('/covidinformation', (req, res) => {
   res.render('./partials/covidinformation')
+});
+
+app.get('/contact', (req, res) => {
+  res.render('./partials/contact')
 });
 
 

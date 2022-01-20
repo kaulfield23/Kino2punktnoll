@@ -1,3 +1,7 @@
 .card {
   max-width: 340px;
 }
+
+.container-fluid {
+  min-height: 100vh;
+}
