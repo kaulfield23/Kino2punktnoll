@@ -7,6 +7,8 @@ export async function fetchAllMovies() {
   const payload = await res.json();
   return payload.data;
 }
+
+
 //fetches a specific movie from API
 export async function fetchChosenMovie(id) {
   const res = await fetch(url + id);
