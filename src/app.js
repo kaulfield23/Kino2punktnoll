@@ -1,44 +1,25 @@
 import express from "express";
 import { engine } from "express-handlebars";
 import { marked } from "marked";
-import { fetchChosenMovie, fetchAllMovies } from "./getMovies.js";
+import routes from "../routes/routes.js";
 
 const app = express();
 
-app.engine("handlebars", engine({
-  helpers: {
-    markdown: md => marked(md),
-  },
-}));
+app.engine(
+  "handlebars",
+  engine({
+    helpers: {
+      markdown: (md) => marked(md),
+    },
+  })
+);
 app.set("view engine", "handlebars");
 app.set("views", "./views");
 
-app.get("/", async (req, res) => {
-  res.render("index");
-});
-
-app.get("/movies", async (req, res) => {
-  const movies = await fetchAllMovies();
-  res.render("./partials/allmovies", { movies });
-});
-
-app.get("/movies/:movieId", async (req, res) => {
-  const movie = await fetchChosenMovie(req.params.movieId);
-  if (movie) {
-    res.render("./partials/movie", { movie });
-  } else {
-    res.status(404).render("./partials/404");
-  }
-});
-
-app.get('/covidinformation', (req, res) => {
-  res.render('./partials/covidinformation')
-});
-
-app.get('/contact', (req, res) => {
-  res.render('./partials/contact')
-});
-
+app.use("/", routes.home);
+app.use("/movies", routes.movies);
+app.use("/contact", routes.contact);
+app.use("/covidinformation", routes.covidinformation);
 
 app.use("/static", express.static("./static"));
 
