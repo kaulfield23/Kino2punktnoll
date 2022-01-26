@@ -15,7 +15,19 @@ export async function fetchChosenMovie(id) {
   return payload.data;
 }
 
+export const loadReviewsData = async (id) => {
+  try {
+    const api = `https://lernia-kino-cms.herokuapp.com/api/reviews?filters[movie]=${id}`;
+    const res = await fetch(api);
+    const reviews = await res.json();
+    return reviews.data;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 export default {
   fetchAllMovies,
   fetchChosenMovie,
+  loadReviewsData,
 };
