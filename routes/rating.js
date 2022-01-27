@@ -10,9 +10,7 @@ const router = express.Router();
 router.get("/:movieId/reviews", async(req, res) => {
     const review = await api.fetchReviews(req.params.movieId)
 
-    res.json({
-        review
-    })
+    res.json({})
 });
 
 //각 영화의 세부 정보 페이지에는 아래 논리에 따라 계산된 영화 등급이 표시되어야 합니다.
