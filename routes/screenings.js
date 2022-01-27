@@ -10,10 +10,11 @@ async (req, res) =>{
     res.json({
         data: screenings.map(data => {
           return {
-            titel: data.attributes.movie.data.attributes.title,
+            id: data.attributes.movie.data.id,
+            title: data.attributes.movie.data.attributes.title,
             time: data.attributes.start_time,
             room: data.attributes.room,
-            
+     
           }
         }),
     })
