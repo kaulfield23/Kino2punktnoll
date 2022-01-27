@@ -20,7 +20,7 @@ app.use("/", routes.home);
 app.use("/movies", routes.movies);
 app.use("/contact", routes.contact);
 app.use("/covidinformation", routes.covidinformation);
-app.use("/api/reviews", routes.rating);
+app.use("/api/movies", routes.rating);
 
 
 app.use("/static", express.static("./static"));
