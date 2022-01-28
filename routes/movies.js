@@ -24,8 +24,12 @@ router.get("/:movieId/reviews", async (req, res) => {
   const startIndex = (page - 1) * pageSize;
   const endIndex = page * pageSize;
 
+  /* const checkVerfied = reviewData.filter(
+    (word) => word.attributes.verified == true
+  ); */
+
   const reviews = reviewData
-    .filter((word) => word.attributes.verified == true)
+    /* .filter((word) => word.attributes.verified == true) */
     .slice(startIndex, endIndex)
     .map((review) => {
       return {
@@ -43,8 +47,8 @@ router.get("/:movieId/reviews", async (req, res) => {
       pagenation: {
         page: req.query.page,
         pageSize: pageSize,
-        pageCount: reviews.length / pageSize,
-        total: reviews.length,
+        pageCount: Math.ceil(reviewData.length / pageSize),
+        total: reviewData.length,
       },
     },
   };
