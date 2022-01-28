@@ -19,8 +19,21 @@ export async function fetchReviews(movieId) {
     return payload.data;
 }
 
+//fetches all screenings from API
+export async function screeningsLoad() {
+    try {
+        const path = "https://lernia-kino-cms.herokuapp.com/api/screenings/";
+        const response = await fetch(path + "?populate=movie&pagination[pageSize]=1000");
+        const payload = await response.json();
+        return payload.data;
+    } catch (error) {
+        console.log("oh no 😢");
+    }
+};
+
 export default {
     fetchAllMovies: fetchAllMovies,
     fetchChosenMovie: fetchChosenMovie,
     fetchReviews: fetchReviews,
+    screeningsLoad: screeningsLoad,
 };

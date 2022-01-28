@@ -3,6 +3,7 @@ import { engine } from "express-handlebars";
 import { marked } from "marked";
 import routes from "../routes/routes.js";
 
+
 const app = express();
 
 app.engine(
@@ -22,6 +23,7 @@ app.use("/contact", routes.contact);
 app.use("/covidinformation", routes.covidinformation);
 app.use("/api/movies", routes.rating);
 
+app.use("/api/screenings/", routes.screenings);
 
 app.use("/static", express.static("./static"));
 
