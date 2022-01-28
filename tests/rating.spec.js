@@ -1,5 +1,5 @@
 import { jest } from "@jest/globals";
-import { getRating } from "../src/getRating.js"
+import { getAverageRating } from "../src/getRating.js"
 import api from '../src/api'
 
 test('get the right average of mocked api', async() => {
@@ -73,7 +73,7 @@ test('get the right average of mocked api', async() => {
         },
     ]);
 
-    const rating = await getRating();
+    const rating = await getAverageRating();
 
     expect(rating).toEqual(7);
 });
