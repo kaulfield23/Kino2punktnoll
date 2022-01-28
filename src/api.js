@@ -25,9 +25,22 @@ export const loadReviewsData = async (id) => {
     console.log(err);
   }
 };
+//For test
+const loadMovieReviews = async (id, page) => {
+  try {
+    const res = await fetch(
+      `http://localhost:5080/api/movie/${id}/reviews?page=${page}&pageSize=5`
+    );
+    const reviews = await res.json();
+    return reviews;
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 export default {
   fetchAllMovies,
   fetchChosenMovie,
   loadReviewsData,
+  loadMovieReviews,
 };
