@@ -16,7 +16,7 @@ export async function fetchChosenMovie(id) {
 }
 
 //fetches all screenings from API
-export async function screeningsLoad () {
+export async function screeningsLoad() {
   try {
       const path = "https://lernia-kino-cms.herokuapp.com/api/screenings/";
       const response = await fetch(path + "?populate=movie&pagination[pageSize]=1000");
