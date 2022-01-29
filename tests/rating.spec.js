@@ -100,18 +100,16 @@ test('get the right average rating/2 of mocked IMDB api when reviews are less th
 
     //it will check IMDB rating and return rating/2
     const mockIMDB = jest.spyOn(api, 'fetchIMDBRate');
-    mockIMDB.mockImplementation(() => {
-        return {
-            '@type': 'imdb.api.title.ratings',
-            id: '/title/tt0468569/',
-            title: 'The Dark Knight',
-            titleType: 'movie',
-            year: 2008,
-            bottomRank: 9342,
-            canRate: true,
-            rating: 10,
-            ratingCount: 2485344,
-        }
+    mockIMDB.mockReturnValue({
+        '@type': 'imdb.api.title.ratings',
+        id: '/title/tt0468569/',
+        title: 'The Dark Knight',
+        titleType: 'movie',
+        year: 2008,
+        bottomRank: 9342,
+        canRate: true,
+        rating: 10,
+        ratingCount: 2485344,
     });
 
 
@@ -121,3 +119,25 @@ test('get the right average rating/2 of mocked IMDB api when reviews are less th
     expect(rating).toBeGreaterThan(-1);
     expect(typeof rating).toBe("number");
 });
+
+
+const myObj = {
+    add: (a, b) => {
+        return a + b;
+    }
+}
+
+test("foobar", () => {
+    // given
+    const myNewSpy = jest.spyOn(myObj, "add");
+    // myNewSpy.mockImplementation((a, b) => {
+    //     return a - b;
+    // })
+    myNewSpy.mockReturnValue(5);
+
+    // when
+    const value = myObj.add(1, 2);
+
+    // then
+    expect(value).toEqual(3);
+})
