@@ -1,5 +1,19 @@
 import fetch from "node-fetch";
 const url = "https://lernia-kino-cms.herokuapp.com/api";
+const imdb_url_rate = "https://imdb8.p.rapidapi.com/title/get-ratings?tconst=";
+
+//fetches IMDB rating of a specific movie.
+export async function fetchIMDBRate(imdbId) {
+    const res = await fetch(imdb_url_rate + `${imdbId}`, {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "imdb8.p.rapidapi.com",
+            "x-rapidapi-key": "af96dcaadamshc062cb2b3787501p1d32a7jsnc52680263752"
+        }
+    })
+    const payload = await res.json();
+    return payload;
+}
 //fetches all the movies from API
 export async function fetchAllMovies() {
     const res = await fetch(url + '/movies');
@@ -36,4 +50,5 @@ export default {
     fetchChosenMovie: fetchChosenMovie,
     fetchReviews: fetchReviews,
     screeningsLoad: screeningsLoad,
+    fetchIMDBRate: fetchIMDBRate,
 };

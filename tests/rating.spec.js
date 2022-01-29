@@ -2,8 +2,9 @@ import { jest } from "@jest/globals";
 import { getAverageRating } from "../src/getRating.js"
 import api from '../src/api'
 
-test('get the right average of mocked api', async() => {
+test('get the right average of mocked api when reviews are more than 5', async() => {
 
+    //when the reviews are more than 5
     const mock = jest.spyOn(api, 'fetchReviews');
     mock.mockImplementation(() => [{
             "id": 57,
@@ -53,7 +54,7 @@ test('get the right average of mocked api', async() => {
             "id": 57,
             "attributes": {
                 "comment": "This is also great!",
-                "rating": 11,
+                "rating": 5,
                 "author": "Richard",
                 "verified": null,
                 "createdAt": "2022-01-27T13:25:43.197Z",
@@ -64,7 +65,7 @@ test('get the right average of mocked api', async() => {
             "id": 57,
             "attributes": {
                 "comment": "This is also great!",
-                "rating": 21,
+                "rating": 2,
                 "author": "Richard",
                 "verified": null,
                 "createdAt": "2022-01-27T13:25:43.197Z",
@@ -73,7 +74,50 @@ test('get the right average of mocked api', async() => {
         },
     ]);
 
-    const rating = await getAverageRating();
+    const rating = await getAverageRating(4);
 
-    expect(rating).toEqual(7);
+    expect(rating).toEqual(2.8);
+    expect(rating).toBeGreaterThan(-1);
+    expect(typeof rating).toBe("number");
+
+});
+
+test('get the right average rating/2 of mocked IMDB api when reviews are less than 5', async() => {
+
+    //when review is less than 5
+    const mockReviews = jest.spyOn(api, 'fetchReviews');
+    mockReviews.mockImplementation(() => [{
+        "id": 57,
+        "attributes": {
+            "comment": "This is also great!",
+            "rating": 1,
+            "author": "Richard",
+            "verified": null,
+            "createdAt": "2022-01-27T13:25:43.197Z",
+            "updatedAt": "2022-01-27T13:25:43.197Z"
+        }
+    }, ]);
+
+    //it will check IMDB rating and return rating/2
+    const mockIMDB = jest.spyOn(api, 'fetchIMDBRate');
+    mockIMDB.mockImplementation(() => {
+        return {
+            '@type': 'imdb.api.title.ratings',
+            id: '/title/tt0468569/',
+            title: 'The Dark Knight',
+            titleType: 'movie',
+            year: 2008,
+            bottomRank: 9342,
+            canRate: true,
+            rating: 10,
+            ratingCount: 2485344,
+        }
+    });
+
+
+    const rating = await getAverageRating(2);
+
+    expect(rating).toEqual(5);
+    expect(rating).toBeGreaterThan(-1);
+    expect(typeof rating).toBe("number");
 });

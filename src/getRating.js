@@ -1,27 +1,21 @@
 import api from './api.js'
 
 export async function getAverageRating(movieId) {
-    const reviews = await api.fetchReviews(movieId);
     let result = null;
+    const movies = await api.fetchAllMovies(movieId); //imdb id includes here
+    const reviews = await api.fetchReviews(movieId); // review doesnt have imdb id
+
+    let selectedMovie = movies.filter(obj => obj.id == movieId)
+    const imdbRating = await api.fetchIMDBRate(selectedMovie[0].attributes.imdbId)
+
     if (reviews.length >= 5) {
         reviews.map(obj => {
             result += obj.attributes.rating;
         })
+        return parseFloat((result / reviews.length).toFixed(1))
     } else {
-        console.log('hello')
+        return parseFloat((imdbRating.rating / 2).toFixed(1));
     }
-    // calc avg rating
-    // else
-    // get from avg from imdb api
-    return result / reviews.length
-        // data: reviews.map(obj => {
-        //     return {
-        //         comment: obj.attributes.comment,
-        //         rating: obj.attributes.rating
-        //     }
-        // })
-
-
 }
 //각 영화의 세부 정보 페이지에는 아래 논리에 따라 계산된 영화 등급이 표시되어야 합니다.
 //등급은 페이지가 로드된 후 브라우저의 가져오기()를 사용하여 로드되어야 합니다.
