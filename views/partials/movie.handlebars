@@ -1,16 +1,17 @@
 <div class="container-fluid">
-      <div class="card m-2">
-          <h5 class="card-header">{{ movie.attributes.title }}</h5>
-        <img class="card-img-top" src="{{{ movie.attributes.image.url }}} ">
-        <div class="card-body">
-          <p class="card-text"> {{{ markdown  movie.attributes.intro }}}</p>
-        </div>
+  <div class="card m-2">
+    <h5 class="card-header">{{ movie.attributes.title }}</h5>
+    <img class="card-img-top" src="{{{ movie.attributes.image.url }}} ">
+    <div class="card-body">
+      <p class="card-text"> {{{ markdown movie.attributes.intro }}}</p>
+    </div>
   </div>
 </div>
 
-<div class = boxForScreenings>
-<h1>Kommande visningar: </h1>
-<ul id="listOfScreenings">
-</ul>
+<div class=boxForScreenings>
+  <h1>Kommande visningar: </h1>
+  <ul id="listOfScreenings">
+  </ul>
 </div>
 <script src="../../static/u_screenings.js"></script>
+<script src="../../static/rates.js"></script>
