@@ -6,7 +6,7 @@ test('get the right average of mocked api when reviews are more than 5', async()
 
     //when the reviews are more than 5
     const mock = jest.spyOn(api, 'fetchReviews');
-    mock.mockImplementation(() => [{
+    mock.mockReturnValue([{
             "id": 57,
             "attributes": {
                 "comment": "This is also great!",
@@ -86,17 +86,20 @@ test('get the right average rating/2 of mocked IMDB api when reviews are less th
 
     //when review is less than 5
     const mockReviews = jest.spyOn(api, 'fetchReviews');
-    mockReviews.mockImplementation(() => [{
-        "id": 57,
-        "attributes": {
-            "comment": "This is also great!",
-            "rating": 1,
-            "author": "Richard",
-            "verified": null,
-            "createdAt": "2022-01-27T13:25:43.197Z",
-            "updatedAt": "2022-01-27T13:25:43.197Z"
-        }
-    }, ]);
+    mockReviews.mockReturnValue(
+        [{
+            "id": 57,
+            "attributes": {
+                "comment": "This is also great!",
+                "rating": 1,
+                "author": "Richard",
+                "verified": null,
+                "createdAt": "2022-01-27T13:25:43.197Z",
+                "updatedAt": "2022-01-27T13:25:43.197Z"
+            }
+        }, ]
+
+    );
 
     //it will check IMDB rating and return rating/2
     const mockIMDB = jest.spyOn(api, 'fetchIMDBRate');
@@ -119,25 +122,3 @@ test('get the right average rating/2 of mocked IMDB api when reviews are less th
     expect(rating).toBeGreaterThan(-1);
     expect(typeof rating).toBe("number");
 });
-
-
-const myObj = {
-    add: (a, b) => {
-        return a + b;
-    }
-}
-
-test("foobar", () => {
-    // given
-    const myNewSpy = jest.spyOn(myObj, "add");
-    // myNewSpy.mockImplementation((a, b) => {
-    //     return a - b;
-    // })
-    myNewSpy.mockReturnValue(5);
-
-    // when
-    const value = myObj.add(1, 2);
-
-    // then
-    expect(value).toEqual(3);
-})
