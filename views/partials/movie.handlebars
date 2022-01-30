@@ -3,6 +3,7 @@
     <h5 class="card-header">{{ movie.attributes.title }}</h5>
     <img class="card-img-top" src="{{{ movie.attributes.image.url }}} ">
     <div class="card-body">
+      <div class="rating"></div>
       <p class="card-text"> {{{ markdown movie.attributes.intro }}}</p>
     </div>
   </div>

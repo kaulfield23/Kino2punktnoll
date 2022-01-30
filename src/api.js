@@ -14,6 +14,7 @@ export async function fetchIMDBRate(imdbId) {
     const payload = await res.json();
     return payload;
 }
+
 //fetches all the movies from API
 export async function fetchAllMovies() {
     const res = await fetch(url + '/movies');
