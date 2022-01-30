@@ -1,20 +1,22 @@
-<div class="container-fluid">
+<div class="container">
       <div class="card m-2">
           <h5 class="card-header">{{ movie.attributes.title }}</h5>
         <img class="card-img-top" src="{{{ movie.attributes.image.url }}} ">
         <div class="card-body">
           <p class="card-text"> {{{ markdown  movie.attributes.intro }}}</p>
-        </div>
-  </div>
+</div>
 
-<div class="p-2">
+<div class="container p-2">
+<form action="" method="post" id="postForm">
   <div class="form-group">
     <label for="namePostReviewForm">Namn</label>
-    <input type="email" class="form-control" id="namePostReviewForm" placeholder="John Doe">
+    <input type="name" class="form-control" id="namePostReviewForm" placeholder="John Doe" value="" required>
+    <input type="hidden" name="movie" value="{{ movie.id }}">
   </div>
   <div class="form-group">
     <label for="ratingPostReview">Välj betyg 1-5</label>
     <select class="form-control" id="ratingPostReview">
+        <option>0</option>
         <option>1</option>
         <option>2</option>
         <option>3</option>
@@ -24,8 +26,11 @@
     </div>
     <div class="form-group">
       <label for="commentPostReview">Lämna kommentar</label>
-      <textarea class="form-control" id="commentPostReview" rows="3"></textarea>
+      <textarea class="form-control" id="commentPostReview" rows="3" required></textarea>
+        </div>
+      <input type="submit">
+      </div>
+    </form>
     </div>
-    <button id="submitPostReview">Skicka</button>
   </div>
-</div>
+ <script src="../../static/postreviews.js"></script>
