@@ -21,7 +21,8 @@ const populateReviews = async (data) => {
 };
 
 const createPageButtons = (data) => {
-  const container = document.querySelector(".reviews");
+  const container = document.querySelector(".container");
+  const reviewCtn = document.querySelector(".reviews");
 
   const nextBtn = document.createElement("button");
   nextBtn.setAttribute("class", "next-btn btn btn-primary m-3");
@@ -43,9 +44,11 @@ const createPageButtons = (data) => {
     data.pageCount
   )}`;
 
-  container.append(pageCounter);
-  container.append(prevBtn);
-  container.append(nextBtn);
+  reviewCtn.append(pageCounter);
+  reviewCtn.append(prevBtn);
+  reviewCtn.append(nextBtn);
+
+  container.append(reviewCtn);
 };
 
 const renderReviews = async (id, page = 1) => {

@@ -1,7 +1,7 @@
 import api from "./api.js";
 
 export const getReviews = async (req) => {
-  const reviewData = await api.loadReviewsData(req.params.movieId);
+  const reviewData = await api.fetchReviews(req.params.movieId);
   const reviews = reviewData
     /* .filter((word) => word.attributes.verified == true) */
     .map((review) => {
@@ -10,7 +10,7 @@ export const getReviews = async (req) => {
         comment: review.attributes.comment,
         rating: review.attributes.rating,
         user: review.attributes.author,
-        verfied: review.attributes.verified,
+        verified: review.attributes.verified,
       };
     });
   return { reviews, req };
