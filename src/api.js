@@ -33,24 +33,12 @@ export async function fetchReviews(movieId) {
   const payload = await res.json();
   return payload.data;
 }
-
-export const loadReviewsData = async (id) => {
-  try {
-    const api = `https://lernia-kino-cms.herokuapp.com/api/reviews?filters[movie]=${id}`;
-    const res = await fetch(api);
-    const reviews = await res.json();
-    return reviews.data;
-  } catch (err) {
-    console.log(err);
-  }
-};
-
 //test
 
 const loadMovieReviews = async (id, page) => {
   try {
     const res = await fetch(
-      `http://localhost:5080/api/movie/${id}/reviews?page=${page}&pageSize=5`
+      `http://localhost:5080/api/movies/${id}/reviews?page=${page}&pageSize=5`
     );
     const reviews = await res.json();
     return reviews;
@@ -79,6 +67,5 @@ export default {
   fetchReviews: fetchReviews,
   screeningsLoad: screeningsLoad,
   fetchIMDBRate: fetchIMDBRate,
-  loadReviewsData,
   loadMovieReviews,
 };
