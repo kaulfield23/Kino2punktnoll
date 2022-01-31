@@ -23,7 +23,7 @@ app.use("/contact", routes.contact);
 app.use("/covidinformation", routes.covidinformation);
 app.use("/api/movies", routes.rating);
 
-app.use("/api/screenings/", routes.screenings);
+app.use("/api/screenings/movies", routes.oneScreening);
 
 app.use("/static", express.static("./static"));
 

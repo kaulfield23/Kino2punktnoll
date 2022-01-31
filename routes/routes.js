@@ -3,14 +3,13 @@ import movies from "./movies.js";
 import contact from "./contact.js";
 import covidinformation from "./covidinformation.js";
 import rating from './rating.js'
-import screenings from "./screenings.js";
+import oneScreening from "./screenings.js";
 
-//importera screenings.js
 export default {
     home,
     movies,
     contact,
     covidinformation,
     rating,
-    screenings,
+    oneScreening,
 };
