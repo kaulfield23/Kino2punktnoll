@@ -14,4 +14,5 @@ export default {
   covidinformation,
   postReviews,
   rating,
+  screenings
 };
