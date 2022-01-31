@@ -7,10 +7,10 @@ postForm.addEventListener('submit', async (ev) => {
   const rating = document.querySelector('#ratingPostReview');
   const name = document.querySelector('#namePostReviewForm');
   const comment = document.querySelector('#commentPostReview');
-  const url = 'http://localhost:5080/movies/:movieid/reviews';
+  const url = `http://localhost:5080/movies/${movieId}/reviews`;
   const movieId = ev.target.movie.value;
   
-  await fetch(`https://floating-savannah-58511.herokuapp.com:5080/movies/${movieId}/reviews`, {
+  await fetch(url, {
     method: 'POST',
     mode: 'cors',
     credential: 'same-origin',
