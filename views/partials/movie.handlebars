@@ -3,6 +3,7 @@
     <h5 class='card-header'>{{movie.attributes.title}}</h5>
     <img class='card-img-top' src='{{{movie.attributes.image.url}}} ' />
     <div class='card-body'>
+      <div class='rating'></div>
       <p class='card-text'> {{{markdown movie.attributes.intro}}}</p>
     </div>
   </div>
@@ -45,4 +46,12 @@
     </form>
   </div>
 </div>
+
+<div class='boxForScreenings'>
+  <h1>Kommande visningar: </h1>
+  <ul id='listOfScreenings'>
+  </ul>
+</div>
 <script src='../../static/postreviews.js'></script>
+<script src='../../static/u_screenings.js'></script>
+<script src='../../static/generateRates.js'></script>

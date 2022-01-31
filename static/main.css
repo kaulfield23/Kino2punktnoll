@@ -9,3 +9,7 @@ body {
 .container-fluid {
   min-height: 100vh;
 }
+
+#listOfScreenings{
+  list-style: none;
+}
