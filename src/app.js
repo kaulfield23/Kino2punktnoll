@@ -24,19 +24,7 @@ app.use("/movies", routes.movies);
 app.use("/contact", routes.contact);
 app.use("/covidinformation", routes.covidinformation);
 
-app.post("/movies/:movieid/reviews", routes.postReviews);
-// res.status(200);
-// console.log(req.body);
-// await fetch('https://lernia-kino-cms.herokuapp.com/api/reviews', {
-//   method: 'POST',
-//   mode: 'cors',
-//   credential: 'same-origin',
-//   headers: {
-//     'Content-Type': 'application/json',
-//   },
-//   body: JSON.stringify(req.body)
-// })
-
+app.use("/movies/:movieid", routes.postReviews);
 app.use("/static", express.static("./static"));
 
 
