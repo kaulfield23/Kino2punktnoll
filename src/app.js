@@ -28,7 +28,7 @@ app.use("/api/movies", routes.rating);
 
 app.use("/api/screenings/", routes.screenings);
 
-app.use("/movies/:movieid", routes.postReviews);
+app.use("/movies/:movieid/reviews", routes.postReviews);
 app.use("/static", express.static("./static"));
 
 

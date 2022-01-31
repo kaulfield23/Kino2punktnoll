@@ -4,9 +4,8 @@ import api from "../src/api.js";
 
 const router = express.Router();
 
-router.post('/reviews' , async  (req,res ) => {
+router.post('/' , async  (req,res ) => {
   res.status(200);
-  console.log(req.body);
   await fetch('https://lernia-kino-cms.herokuapp.com/api/reviews', {
   method: 'POST',
   mode: 'cors',
