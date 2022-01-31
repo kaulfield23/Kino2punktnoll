@@ -25,7 +25,9 @@ export const loadReviewsData = async (id) => {
     console.log(err);
   }
 };
-//For test
+
+//test
+
 const loadMovieReviews = async (id, page) => {
   try {
     const res = await fetch(
