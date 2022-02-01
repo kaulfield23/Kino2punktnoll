@@ -1,6 +1,8 @@
 import fetch from "node-fetch";
 const url = "https://lernia-kino-cms.herokuapp.com/api";
 const imdb_url_rate = "https://imdb8.p.rapidapi.com/title/get-ratings?tconst=";
+const path =
+  "https://lernia-kino-cms.herokuapp.com/api/screenings/?pagination[pageSize]=100&filters[movie]=";
 
 //fetches IMDB rating of a specific movie.
 export async function fetchIMDBRate(imdbId) {
@@ -29,18 +31,21 @@ export async function fetchChosenMovie(id) {
   return payload.data;
 }
 export async function fetchReviews(movieId) {
-  const res = await fetch(url + "/reviews" + `?filters[movie]=${movieId}`);
+  const res = await fetch(
+    url + "/reviews" + `?pagination=1000&filters[movie]=${movieId}`
+  );
   const payload = await res.json();
-  return payload.data.filter((word) => word.attributes.verified == true);
+  return payload.data;
 }
-
-//fetches all screenings from API
-export async function screeningsLoad() {
+/* const res = await fetch(url + "/reviews" + `?filters[movie]=${movieId}`);
+const payload = await res.json();
+return payload.data.filter((word) => word.attributes.verified == true);
+}
+ */
+//fetches screenings for specific movie from API
+export async function screeningsLoad(sId) {
   try {
-    const path = "https://lernia-kino-cms.herokuapp.com/api/screenings/";
-    const response = await fetch(
-      path + "?populate=movie&pagination[pageSize]=1000"
-    );
+    const response = await fetch(path + `${sId}`);
     const payload = await response.json();
     return payload.data;
   } catch (error) {
