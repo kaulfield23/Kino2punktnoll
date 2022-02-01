@@ -7,7 +7,6 @@ postForm.addEventListener('submit', async (ev) => {
   const rating = document.querySelector('#ratingPostReview');
   const name = document.querySelector('#namePostReviewForm');
   const comment = document.querySelector('#commentPostReview');
-  /* const url = `http://localhost:5080/movies/:movieid/reviews`; */
   const movieId = ev.target.movie.value;
   
   const commentPosting = await fetch(`/api/movies/${movieId}/reviews`, {

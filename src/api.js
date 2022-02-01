@@ -64,13 +64,10 @@ export async function postData(url, data) {
             referrerPolicy: 'no-referrer',
             body: JSON.stringify(data)
          });
-        //res.status(200);
         return response.json();
     } catch (error) {
         console.log(error);
-        //res.status(404);
         return {status:'failed'};
-        console.log(`POST to ${postReview_url} failed...`);
    }
 }
 
