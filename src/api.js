@@ -31,21 +31,8 @@ export async function fetchChosenMovie(id) {
 export async function fetchReviews(movieId) {
   const res = await fetch(url + "/reviews" + `?filters[movie]=${movieId}`);
   const payload = await res.json();
-  return payload.data;
+  return payload.data.filter((word) => word.attributes.verified == true);
 }
-//test
-
-const loadMovieReviews = async (id, page) => {
-  try {
-    const res = await fetch(
-      `http://localhost:5080/api/movies/${id}/reviews?page=${page}&pageSize=5`
-    );
-    const reviews = await res.json();
-    return reviews;
-  } catch (err) {
-    console.log(err);
-  }
-};
 
 //fetches all screenings from API
 export async function screeningsLoad() {
@@ -67,5 +54,4 @@ export default {
   fetchReviews: fetchReviews,
   screeningsLoad: screeningsLoad,
   fetchIMDBRate: fetchIMDBRate,
-  loadMovieReviews,
 };
