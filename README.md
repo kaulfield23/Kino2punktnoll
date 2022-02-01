@@ -31,6 +31,6 @@ Har påbörjat VG-uppgift- filtrera bort reviews som inte är verified.
 
 Carola: Skrivit om logiken serverside- börja med göra test idag. 
 
-nästa möte: fredag 4/2 kl. 20.00 sista avstämning med plan på inlämning
+Roger: Påbörjat uppgiften och börjar vara färdig inom en snar framtid.
 
-Roger: Påbörjat uppgiften och börjar vara färdig inom en snar framtid
+Nästa möte: fredag 4/2 kl. 20.00 sista avstämning, dokumentation av api bla.  samt planerad inlämning.
