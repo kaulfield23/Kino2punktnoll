@@ -42,18 +42,21 @@ const router = express.Router();
 
 router.post('/reviews', async(req, res) => {
     res.status(200);
+    let token = localStorage.getItem('token');
     console.log(localStorage.getItem('token'), 'token in reviews');
-    if (localStorage.getItem('token')) {
+    if (token) {
         await fetch('https://lernia-kino-cms.herokuapp.com/api/reviews', {
             method: 'POST',
             mode: 'cors',
             credential: 'same-origin',
             headers: {
-                // 'Authorization': 'Bearer ' + token,
+                'Authorization': 'Bearer ' + token,
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(req.body)
         })
+    } else {
+        res.status(401).end();
     }
 >>>>>>> 56617da (node-localstorage but it still remains in server)
 })
