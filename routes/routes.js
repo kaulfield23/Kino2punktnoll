@@ -4,9 +4,8 @@ import contact from "./contact.js";
 import covidinformation from "./covidinformation.js";
 import postReviews from "./postReviews.js";
 import rating from './rating.js'
-import screenings from "./screenings.js";
+import oneScreening from "./onescreening.js";
 
-//importera screenings.js
 export default {
   home,
   movies,
@@ -14,5 +13,5 @@ export default {
   covidinformation,
   postReviews,
   rating,
-  screenings
+  oneScreening,
 };
