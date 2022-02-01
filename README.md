@@ -17,4 +17,18 @@ Som datakälla används samma CMS-API som tidigare, som nu utökats med funktion
 -Vi har delat upp uppgifterna som PBIs i Github Project
 
 https://whimsical.com/kino2punktnoll-T5ik9HaYsmXQCWErqMfae4
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+Möte 22-02-01: medverkande Johan, Haeju, Pontus, Carola, Roger. 
 
+Johan: lagt till formulär som postreviews, lagt till api som tar emot req- sett så funktionaliteten fungerar. Har påbörjat en VG-uppgift för att köra automatiska tester via heroku. 
+
+Haeju: Klar med rating, testning och allt fungerar. Påbörjat VG-uppg för JWT. 
+
+Pontus: Klar med reviews och pagination, funderar på bättre lösningar. Håller på med testlösningar. Verifiera filtreringsfunktion. 
+Har påbörjat VG-uppgift- filtrera bort reviews som inte är verified.
+
+Carola: Skrivit om logiken serverside- börja med göra test idag. 
+
+nästa möte: fredag 4/2 kl. 20.00 sista avstämning med plan på inlämning
+
+Roger: Påbörjat uppgiften och börjar vara färdig inom en snar framtid
