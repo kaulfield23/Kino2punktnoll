@@ -15,10 +15,11 @@ export const getReviews = async (id) => {
 };
 
 export const paginate = (data, req) => {
-  const page = req.query.page;
-  const pageSize = req.query.pageSize;
+  const page = req.query.page || 1;
+  const pageSize = req.query.pageSize || 20;
   const startIndex = (page - 1) * pageSize;
   const endIndex = page * pageSize;
+
   const paginatedResults = data.slice(startIndex, endIndex);
   const results = {
     reviews: [...paginatedResults],
