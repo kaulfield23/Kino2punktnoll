@@ -9,7 +9,9 @@ router.get("/:movieId/rating", async (req, res) => {
 });
 
 router.get("/:movieId/reviews", async (req, res) => {
-  res.json(paginate(await getReviews(req)));
+  req.query.pageSize > 0 && req.query.page > 0
+    ? res.json(paginate(await getReviews(req.params.movieId), req))
+    : res.json(await getReviews(req.params.movieId));
 });
 
 export default router;

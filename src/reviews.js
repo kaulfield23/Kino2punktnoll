@@ -1,36 +1,33 @@
 import api from "./api.js";
 
-export const getReviews = async (req) => {
-  const reviewData = await api.fetchReviews(req.params.movieId);
-  const reviews = reviewData
-    /* .filter((word) => word.attributes.verified == true) */
-    .map((review) => {
-      return {
-        id: review.id,
-        comment: review.attributes.comment,
-        rating: review.attributes.rating,
-        user: review.attributes.author,
-        verified: review.attributes.verified,
-      };
-    });
-  return { reviews, req };
+export const getReviews = async (id) => {
+  const reviewData = await api.fetchReviews(id);
+  const reviews = reviewData.map((review) => {
+    return {
+      id: review.id,
+      comment: review.attributes.comment,
+      rating: review.attributes.rating,
+      user: review.attributes.author,
+      verified: review.attributes.verified,
+    };
+  });
+  return reviews;
 };
 
-export const paginate = (data) => {
-  const page = data.req.query.page;
-  const pageSize = data.req.query.pageSize;
+export const paginate = (data, req) => {
+  const page = req.query.page;
+  const pageSize = req.query.pageSize;
   const startIndex = (page - 1) * pageSize;
   const endIndex = page * pageSize;
-
-  const pagData = data.reviews.slice(startIndex, endIndex);
+  const paginatedResults = data.slice(startIndex, endIndex);
   const results = {
-    reviews: [...pagData],
+    reviews: [...paginatedResults],
     meta: {
       pagination: {
         page: page,
         pageSize: pageSize,
-        pageCount: Math.ceil(data.reviews.length / pageSize),
-        total: data.reviews.length,
+        pageCount: Math.ceil(data.length / pageSize),
+        total: data.length,
       },
     },
   };
