@@ -7,11 +7,9 @@ postForm.addEventListener('submit', async (ev) => {
   const rating = document.querySelector('#ratingPostReview');
   const name = document.querySelector('#namePostReviewForm');
   const comment = document.querySelector('#commentPostReview');
-  const url = 'http://localhost:5080/movies/:movieid/reviews';
   const movieId = ev.target.movie.value;
   
-  console.log(name.value, rating.value, comment.value);
-  await fetch(`http://localhost:5080/movies/${movieId}/reviews`, {
+  const commentPosting = await fetch(`/api/movies/${movieId}/reviews`, {
     method: 'POST',
     mode: 'cors',
     credential: 'same-origin',
@@ -29,9 +27,8 @@ postForm.addEventListener('submit', async (ev) => {
         "updatedAt": new Date(),
       }
     })
-  }).then(res => {
-    return res.json()
-  })
-    .then(data => console.log(data))
-    .catch(error => console.log('ERROR'))
+  });
+
 });
+
+//FRONTEND-Logiken
