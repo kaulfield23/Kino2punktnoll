@@ -1,5 +1,4 @@
 
-
 async function upcomingScreenings(sId) {
     const res = await fetch(`/api/screenings/movies/${sId}`);
     const payload = await res.json();
@@ -9,8 +8,6 @@ async function upcomingScreenings(sId) {
         const localTime = `${obj.time}`;
         const getLocalTime = new Date(localTime).
             toLocaleString();
-
-
 
         const timeForScreening = document.createElement('h6');
         timeForScreening.innerText = "Datum & Tid: " + getLocalTime.slice(0, -3);
