@@ -1,18 +1,57 @@
-<div class="container-fluid">
-  <div class="card m-2">
-    <h5 class="card-header">{{ movie.attributes.title }}</h5>
-    <img class="card-img-top" src="{{{ movie.attributes.image.url }}} ">
-    <div class="card-body">
-      <div class="rating"></div>
-      <p class="card-text"> {{{ markdown movie.attributes.intro }}}</p>
+<div class='container'>
+  <div class='card m-2'>
+    <h5 class='card-header'>{{movie.attributes.title}}</h5>
+    <img class='card-img-top' src='{{{movie.attributes.image.url}}} ' />
+    <div class='card-body'>
+      <div class='rating'></div>
+      <p class='card-text'> {{{markdown movie.attributes.intro}}}</p>
     </div>
+  </div>
+
+  <div class='container p-2'>
+    <form action='' method='post' id='postForm'>
+      <div class='form-group'>
+        <label for='namePostReviewForm'>Namn</label>
+        <input
+          type='name'
+          class='form-control'
+          id='namePostReviewForm'
+          placeholder='John Doe'
+          value=''
+          required
+        />
+        <input type='hidden' name='movie' value='{{movie.id}}' />
+      </div>
+      <div class='form-group'>
+        <label for='ratingPostReview'>Välj betyg 1-5</label>
+        <select class='form-control' id='ratingPostReview'>
+          <option>0</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+      <div class='form-group'>
+        <label for='commentPostReview'>Lämna kommentar</label>
+        <textarea
+          class='form-control'
+          id='commentPostReview'
+          rows='3'
+          required
+        ></textarea>
+      </div>
+      <input type='submit' />
+    </form>
   </div>
 </div>
 
-<div class=boxForScreenings>
+<div class='boxForScreenings'>
   <h1>Kommande visningar: </h1>
-  <ul id="listOfScreenings">
+  <ul id='listOfScreenings'>
   </ul>
 </div>
-<script src="../../static/u_screenings.js"></script>
-<script src="../../static/generateRates.js"></script>
+<script src='../../static/postreviews.js'></script>
+<script src='../../static/u_screenings.js'></script>
+<script src='../../static/generateRates.js'></script>
