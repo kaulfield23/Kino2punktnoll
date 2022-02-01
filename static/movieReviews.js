@@ -28,14 +28,18 @@ const createPageButtons = (data) => {
   nextBtn.setAttribute("class", "next-btn btn btn-primary m-3");
   nextBtn.innerText = "Next";
   nextBtn.addEventListener("click", () => {
-    renderReviews(window.location.href.slice(-1), parseInt(data.page) + 1);
+    data.pageCount > data.page
+      ? renderReviews(window.location.href.slice(-1), parseInt(data.page) + 1)
+      : null;
   });
 
   const prevBtn = document.createElement("button");
   prevBtn.setAttribute("class", "prev-btn btn btn-primary");
   prevBtn.innerText = "Previous";
   prevBtn.addEventListener("click", () => {
-    renderReviews(window.location.href.slice(-1), parseInt(data.page) - 1);
+    data.page > 1
+      ? renderReviews(window.location.href.slice(-1), parseInt(data.page) - 1)
+      : null;
   });
 
   const pageCounter = document.createElement("p");
@@ -57,9 +61,7 @@ const renderReviews = async (id, page = 1) => {
   reviews.reviews.forEach((element) => {
     populateReviews(element);
   });
-  if (reviews.meta.pagination.pageCount > 1) {
-    createPageButtons(reviews.meta.pagination);
-  }
+  createPageButtons(reviews.meta.pagination);
 };
 
 renderReviews(window.location.href.slice(-1));
