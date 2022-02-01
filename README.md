@@ -18,6 +18,8 @@ Som datakälla används samma CMS-API som tidigare, som nu utökats med funktion
 
 https://whimsical.com/kino2punktnoll-T5ik9HaYsmXQCWErqMfae4
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+
 Möte 22-02-01: medverkande Johan, Haeju, Pontus, Carola, Roger. 
 
 Johan: lagt till formulär som postreviews, lagt till api som tar emot req- sett så funktionaliteten fungerar. Har påbörjat en VG-uppgift för att köra automatiska tester via heroku. 
