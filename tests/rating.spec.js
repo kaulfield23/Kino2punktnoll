@@ -76,7 +76,7 @@ test("get the right average of mocked api when reviews are more than 5", async (
 
   const rating = await getAverageRating(4);
 
-  expect(rating).toEqual(2.7);
+  expect(rating).toEqual(3.2);
   expect(rating).toBeGreaterThan(-1);
   expect(typeof rating).toBe("number");
 });
