@@ -28,7 +28,6 @@ postForm.addEventListener('submit', async (ev) => {
       }
     })
   });
-
+  postForm.reset();
 });
 
-//FRONTEND-Logiken
