@@ -26,8 +26,9 @@ app.use("/covidinformation", routes.covidinformation);
 app.use("/api/movies", routes.rating);
 
 app.use("/api/screenings/movies", routes.oneScreening);
-app.use("/api/movies/:movieid/reviews", routes.postReviews)
+app.use("/api/movies/:movieid/reviews", routes.postReviews);
 
+app.use("/login", routes.login);
 app.use("/static", express.static("./static"));
 
 export default app;
