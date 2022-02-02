@@ -1,7 +1,9 @@
 import JWT from 'jsonwebtoken';
 import { LocalStorage } from 'node-localstorage';
+
 const localStorage = new LocalStorage('./scratch');
 
+//check if input name and password is matching
 function inUserList(req) {
     const username = [
         'richard',
@@ -40,7 +42,6 @@ export function loginFunc(req, res) {
     } else {
         res.status(401).end()
     }
-    console.log(username)
 }
 
 export default loginFunc;

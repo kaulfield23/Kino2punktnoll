@@ -44,7 +44,6 @@ router.post('/reviews', async(req, res) => {
 
     const reqToken = req.headers["authorization"].split(":")[1].trim();
     let storedToken = localStorage.getItem('token');
-    console.log(localStorage.getItem('token'), 'token in reviews');
 
     if (reqToken !== storedToken) {
         return res.status(401).end();
@@ -64,7 +63,11 @@ router.post('/reviews', async(req, res) => {
     })
 
     res.status(200).end();
+<<<<<<< HEAD
 >>>>>>> 4b4d736 (store the token to local storage and compare with server token)
+=======
+
+>>>>>>> b3ae5d7 (deleted useless console log and comments)
 })
 
 export default router;

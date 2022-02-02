@@ -22,6 +22,4 @@ router.get("/logout", (req, res) => {
     res.status(200).end();
 })
 
-
-//Kräv en korrekt JWT för att kunna skicka recensioner. Skapa en route som generar JWT baserat på exempelvis användarman och löensord. Skriv automatiskt test som verifierar att recensioner inte går att skicka utan token.
 export default router;
