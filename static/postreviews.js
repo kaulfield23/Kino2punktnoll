@@ -66,7 +66,15 @@ postForm.addEventListener('submit', async(ev) => {
         }).then(res => {
             return res.json()
         })
+<<<<<<< HEAD
         .then(data => console.log(data))
         .catch(error => console.log('ERROR'))
+=======
+    });
+    if (commentPosting.status == 401) {
+        alert('Log in before you leave reviews!')
+    }
+    postForm.reset()
+>>>>>>> 307e0be (added reset func for form)
 });
 >>>>>>> 4b4d736 (store the token to local storage and compare with server token)
