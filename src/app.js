@@ -3,29 +3,29 @@ import { engine } from "express-handlebars";
 import { marked } from "marked";
 import routes from "../routes/routes.js";
 import fetch from "node-fetch";
-import cors from "cors";
+// import cors from "cors";
 
-let allowedOrigins = [
-  "http://localhost:5080",
-  "https://floating-savannah-58511.herokuapp.com/",
-];
+// let allowedOrigins = [
+//   "http://localhost:5080",
+//   "https://floating-savannah-58511.herokuapp.com/",
+// ];
 const app = express();
 
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      if (!origin) return callback(null, true);
+// app.use(
+//   cors({
+//     origin: function (origin, callback) {
+//       if (!origin) return callback(null, true);
 
-      if (allowedOrigins.indexOf(origin) === -1) {
-        var msg =
-          "The CORS policy for this site does not " +
-          "allow access from the specified Origin.";
-        return callback(new Error(msg), false);
-      }
-      return callback(null, true);
-    },
-  })
-);
+//       if (allowedOrigins.indexOf(origin) === -1) {
+//         var msg =
+//           "The CORS policy for this site does not " +
+//           "allow access from the specified Origin.";
+//         return callback(new Error(msg), false);
+//       }
+//       return callback(null, true);
+//     },
+//   })
+// );
 
 app.engine(
   "handlebars",
