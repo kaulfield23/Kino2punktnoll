@@ -35,7 +35,7 @@ export async function fetchReviews(movieId) {
     url + "/reviews" + `?pagination=1000&filters[movie]=${movieId}`
   );
   const payload = await res.json();
-  return payload.data.filter((word) => word.attributes.verified == true);
+  return payload.data;
 }
 
 //fetches screenings for specific movie from API

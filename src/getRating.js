@@ -6,9 +6,11 @@ export async function getAverageRating(movieId) {
   const reviews = await api.fetchReviews(movieId); // review doesnt have imdb id
 
   if (reviews.length >= 5) {
-    reviews.map((obj) => {
-      result += obj.attributes.rating;
-    });
+    reviews
+      .filter((word) => word.attributes.verified == true)
+      .map((obj) => {
+        result += obj.attributes.rating;
+      });
     return parseFloat((result / reviews.length).toFixed(1));
   } else {
     const movies = await api.fetchAllMovies(movieId); //imdb id includes here
