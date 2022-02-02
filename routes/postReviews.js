@@ -41,24 +41,30 @@ const localStorage = new LocalStorage('./scratch');
 const router = express.Router();
 
 router.post('/reviews', async(req, res) => {
-    res.status(200);
-    let token = localStorage.getItem('token');
+
+    const reqToken = req.headers["authorization"].split(":")[1].trim();
+    let storedToken = localStorage.getItem('token');
     console.log(localStorage.getItem('token'), 'token in reviews');
-    if (token) {
-        await fetch('https://lernia-kino-cms.herokuapp.com/api/reviews', {
-            method: 'POST',
-            mode: 'cors',
-            credential: 'same-origin',
-            headers: {
-                'Authorization': 'Bearer ' + token,
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(req.body)
-        })
-    } else {
-        res.status(401).end();
+
+    if (reqToken !== storedToken) {
+        return res.status(401).end();
     }
+<<<<<<< HEAD
 >>>>>>> 56617da (node-localstorage but it still remains in server)
+=======
+
+    await fetch('https://lernia-kino-cms.herokuapp.com/api/reviews', {
+        method: 'POST',
+        mode: 'cors',
+        credential: 'same-origin',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(req.body)
+    })
+
+    res.status(200).end();
+>>>>>>> 4b4d736 (store the token to local storage and compare with server token)
 })
 
 export default router;
