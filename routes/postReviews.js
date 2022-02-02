@@ -1,5 +1,6 @@
 import fetch from 'node-fetch'
 import express from "express";
+<<<<<<< HEAD
 import { postData } from "../src/api.js";
 const postReview_url = "https://lernia-kino-cms.herokuapp.com/api/reviews"
 
@@ -32,6 +33,29 @@ router.post('/', async (req, res) => {
     
   });
 
+=======
+import api from "../src/api.js";
+import { LocalStorage } from 'node-localstorage';
+const localStorage = new LocalStorage('./scratch');
+
+const router = express.Router();
+
+router.post('/reviews', async(req, res) => {
+    res.status(200);
+    console.log(localStorage.getItem('token'), 'token in reviews');
+    if (localStorage.getItem('token')) {
+        await fetch('https://lernia-kino-cms.herokuapp.com/api/reviews', {
+            method: 'POST',
+            mode: 'cors',
+            credential: 'same-origin',
+            headers: {
+                // 'Authorization': 'Bearer ' + token,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(req.body)
+        })
+    }
+>>>>>>> 56617da (node-localstorage but it still remains in server)
 })
 
 export default router;
