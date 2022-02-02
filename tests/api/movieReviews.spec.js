@@ -17,8 +17,10 @@ import api from "../../src/api.js";
 }; */
 
 const mockReq = {
-  query: "pageSize=5",
-  query: "page=1",
+  query: {
+    pageSize: 5,
+    page: 1,
+  },
 };
 
 const mock = jest.spyOn(api, "fetchReviews");
