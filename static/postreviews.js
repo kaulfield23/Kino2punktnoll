@@ -1,34 +1,71 @@
+const submitPostReview = document.querySelector("#submitPostReview");
+const postForm = document.querySelector("#postForm");
 
-const submitPostReview = document.querySelector('#submitPostReview');
-const postForm = document.querySelector('#postForm');
+// postForm.addEventListener('submit', async(ev) => {
+//     ev.preventDefault();
+//     const rating = document.querySelector('#ratingPostReview');
+//     const name = document.querySelector('#namePostReviewForm');
+//     const comment = document.querySelector('#commentPostReview');
+//     const movieId = ev.target.movie.value;
+//     const token = localStorage.getItem("token")
 
-postForm.addEventListener('submit', async (ev) => {
+//     console.log(name.value, rating.value, comment.value);
+
+//     await fetch(`http://localhost:5080/movies/${movieId}/reviews`, {
+//             method: 'POST',
+//             mode: 'cors',
+//             credential: 'same-origin',
+//             headers: {
+//                 'Authorization': 'Bearer: ' + token,
+//                 'Content-Type': 'application/json'
+//             },
+//             body: JSON.stringify({
+//                 "data": {
+//                     "comment": comment.value,
+//                     "rating": parseInt(rating.value),
+//                     "author": name.value,
+//                     "verified": null,
+//                     "movie": movieId,
+//                     "createdAt": new Date(),
+//                     "updatedAt": new Date(),
+//                 }
+//             })
+//         }).then(res => {
+//             return res.json()
+//         })
+//         .then(data => console.log(data))
+//         .catch(error => console.log('ERROR'))
+// });
+postForm.addEventListener("submit", async (ev) => {
   ev.preventDefault();
-  const rating = document.querySelector('#ratingPostReview');
-  const name = document.querySelector('#namePostReviewForm');
-  const comment = document.querySelector('#commentPostReview');
+  const rating = document.querySelector("#ratingPostReview");
+  const name = document.querySelector("#namePostReviewForm");
+  const comment = document.querySelector("#commentPostReview");
   const movieId = ev.target.movie.value;
-  
+  const token = localStorage.getItem("token");
+
   const commentPosting = await fetch(`/api/movies/${movieId}/reviews`, {
-    method: 'POST',
-    mode: 'cors',
-    credential: 'same-origin',
+    method: "POST",
+    mode: "cors",
+    credential: "same-origin",
     headers: {
-      'Content-Type': 'application/json'
+      Authorization: "Bearer: " + token,
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      "data": {
-        "comment": comment.value,
-        "rating": parseInt(rating.value),
-        "author": name.value,
-        "verified": null,
-        "movie": movieId,
-        "createdAt": new Date(),
-        "updatedAt": new Date(),
-      }
-    })
+      data: {
+        comment: comment.value,
+        rating: parseInt(rating.value),
+        author: name.value,
+        verified: true,
+        movie: movieId,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+    }),
   });
-
+  if (commentPosting.status == 401) {
+    alert("Log in before you leave reviews!");
+  }
+  postForm.reset();
 });
-
-//FRONTEND-Logiken
