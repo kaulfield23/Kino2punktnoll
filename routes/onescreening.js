@@ -1,32 +1,16 @@
 import express from "express";
 import { screeningsLoad } from '../src/api.js';
-
+import { filterOneScreening } from '../src/one_screeningFilter.js';
 
 const router = express.Router();
 
 router.get("/:sId",
     async (req, res) => {
-        const oneScreening = await screeningsLoad(req.params.sId);
+        //fetching data from CMS-api
+        res.json(await filterOneScreening(req.params.sId, screeningsLoad));
 
-        let thisVisit = new Date();
-        const jsonDate = thisVisit.toJSON();
-
-        if (oneScreening) {
-            res.json({
-                data: oneScreening
-                    .filter(data => jsonDate < data.attributes.start_time)
-                    .map(data => {
-                        return {
-                            id: data.id,
-                            time: data.attributes.start_time,
-                            room: data.attributes.room,
-                        }
-                    })
-            })
-        }
     })
 
 export default router;
-
 
 
