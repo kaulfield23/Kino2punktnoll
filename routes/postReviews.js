@@ -1,29 +1,7 @@
 import fetch from "node-fetch";
 import express from "express";
-import { LocalStorage } from "node-localstorage";
-import { postData } from "../src/api.js";
-const localStorage = new LocalStorage("./scratch");
-
-// router.post('/reviews', async(req, res) => {
-
-//     const reqToken = req.headers["authorization"].split(":")[1].trim();
-//     let storedToken = localStorage.getItem('token');
-
-//     if (reqToken !== storedToken) {
-//         return res.status(401).end();
-//     }
-
-//     await fetch('https://lernia-kino-cms.herokuapp.com/api/reviews', {
-//         method: 'POST',
-//         mode: 'cors',
-//         credential: 'same-origin',
-//         headers: {
-//             'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify(req.body)
-//     })
-
-//     res.status(200).end();
+import api from "../src/api.js";
+import JWT from "jsonwebtoken";
 
 const postReview_url = "https://lernia-kino-cms.herokuapp.com/api/reviews";
 
@@ -31,14 +9,18 @@ const router = express.Router();
 
 //Server logic to handle post from client and pass to CMS API
 router.post("/", async (req, res) => {
-  const reqToken = req.headers["authorization"].split(":")[1].trim();
-  let storedToken = localStorage.getItem("token");
+  if (!req.headers["authorization"]) {
+    return res.status(401).end();
+  }
+  const reqToken = req.headers["authorization"].split(" ")[1];
+  let token = JWT.decode(reqToken, "thisisapassword");
 
-  if (reqToken !== storedToken) {
+  if (token === null) {
     return res.status(401).end();
   }
 
-  postData(postReview_url, req.body).then((data) => {
+  api.postData(postReview_url, req.body).then((data) => {
+    console.log(postReview_url);
     console.log("from postRewur", data);
     res.status(200).send("test");
   });

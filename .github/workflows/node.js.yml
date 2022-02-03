@@ -30,4 +30,3 @@ jobs:
     - run: npm test pages
     - run: npm test rating
     - run: npm test upcoming
-    
