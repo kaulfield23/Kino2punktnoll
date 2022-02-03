@@ -1,5 +1,4 @@
 import JWT from "jsonwebtoken";
-import { LocalStorage } from "node-localstorage";
 
 //check if input name and password is matching
 function inUserList(req) {

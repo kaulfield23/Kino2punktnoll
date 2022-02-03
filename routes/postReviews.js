@@ -20,6 +20,7 @@ router.post("/", async (req, res) => {
   }
 
   api.postData(postReview_url, req.body).then((data) => {
+    console.log(postReview_url);
     console.log("from postRewur", data);
     res.status(200).send("test");
   });
