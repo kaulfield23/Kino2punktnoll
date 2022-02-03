@@ -39,6 +39,33 @@
 | `page` | Integer | query | Page number of the results to fetch. Default: `1` |
 | `pageSize` | Integer | query | Results per page. Default: `20` |
 
+## Reviews
+
+**POST:**  `/movies/{id}/reviews` 
+
+`Status: 201 OK`
+
+```
+Request Body-required
+{
+  "data": {
+    "comment": "string",
+    "rating": 0,
+    "author": "string",
+    "verified": true,
+    "movie": "string or id",
+    "createdAt": "2022-02-03T23:42:54.711Z",
+    "updatedAt": "2022-02-03T23:42:54.711Z",
+    "createdBy": "string or id",
+    "updatedBy": "string or id"
+  }
+}
+```
+`Status: 401`
+Unauthorized
+```
+
+
 # Mötesanteckningar
 
 22-01-25 Möte:
