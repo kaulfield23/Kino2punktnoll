@@ -1,4 +1,45 @@
 # Kino2punktnoll
+
+# API Documentation
+
+## Movies
+
+**GET:**  `/movies/{id}/reviews` 
+
+### Response
+
+`Status: 200 OK`
+
+```{
+    "reviews": [
+        {
+            "id": 1,
+            "comment": "string",
+            "rating": 0,
+            "user": "string",
+            "verified": true
+        }
+    ],
+    "meta": {
+        "pagination": {
+            "page": 1,
+            "pageSize": "20",
+            "pageCount": 1,
+            "total": 1
+        }
+    }
+}
+```
+### Parameters
+
+
+| Name | Type | In | Description |
+| ----------- | ----------- | ----------- | ----------- |
+| `page` | Integer | query | Page number of the results to fetch. Default: `1` |
+| `pageSize` | Integer | query | Results per page. Default: `20` |
+
+# Mötesanteckningar
+
 22-01-25 Möte:
 Deltagare:
 Johan
