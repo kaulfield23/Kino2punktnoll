@@ -14,10 +14,8 @@ router.post("/getUser", (req, res) => {
   loginFunc(req, res);
 });
 
-//clear the node-localstorage token
+//clear the localstorage token
 router.get("/logout", (req, res) => {
-  const localStorage = new LocalStorage("./scratch");
-  localStorage.removeItem("token");
   res.status(200).end();
 });
 
