@@ -9,14 +9,20 @@
     "dev": "nodemon .",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
+  "engines": {
+    "node": "16.x"
+  },
   "author": "Johan Ekström",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.2",
     "express-handlebars": "^6.0.2",
+    "jsonwebtoken": "^8.5.1",
     "marked": "^4.0.10",
     "node": "^17.3.1",
     "node-fetch": "^3.2.0",
+    "node-localstorage": "^2.2.1",
     "nodemon": "^2.0.15"
   },
   "devDependencies": {
