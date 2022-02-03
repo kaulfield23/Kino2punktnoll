@@ -1,8 +1,7 @@
 import fetch from "node-fetch";
 const url = "https://lernia-kino-cms.herokuapp.com/api";
 const imdb_url_rate = "https://imdb8.p.rapidapi.com/title/get-ratings?tconst=";
-
-const path =
+const urlForOneScreening =
   "https://lernia-kino-cms.herokuapp.com/api/screenings/?pagination[pageSize]=100&filters[movie]=";
 const postReview_url = "https://lernia-kino-cms.herokuapp.com/api/";
 
@@ -35,17 +34,17 @@ export async function fetchChosenMovie(id) {
 export async function fetchReviews(movieId) {
   const res = await fetch(
     url +
-      "/reviews" +
-      `?pagination[pageSize]=1000&filters[movie]=${movieId}&pagination[page]=1`
+    "/reviews" +
+    `?pagination[pageSize]=1000&filters[movie]=${movieId}&pagination[page]=1`
   );
   const payload = await res.json();
-  return payload.data.filter((word) => word.attributes.verified == true);
+  return payload.data;
 }
 
 //fetches screenings for specific movie from API
 export async function screeningsLoad(sId) {
   try {
-    const response = await fetch(path + `${sId}`);
+    const response = await fetch(urlForOneScreening + `${sId}`);
     const payload = await response.json();
     return payload.data;
   } catch (error) {

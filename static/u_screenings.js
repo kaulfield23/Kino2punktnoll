@@ -2,10 +2,10 @@
 async function upcomingScreenings(sId) {
     const res = await fetch(`/api/screenings/movies/${sId}`);
     const payload = await res.json();
-
     payload.data.forEach(obj => {
 
         const localTime = `${obj.time}`;
+
         const getLocalTime = new Date(localTime).
             toLocaleString();
 

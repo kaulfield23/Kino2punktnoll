@@ -14,7 +14,7 @@ postForm.addEventListener("submit", async (ev) => {
     mode: "cors",
     credential: "same-origin",
     headers: {
-      Authorization: "Bearer: " + token,
+      Authorization: "Bearer " + token,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
