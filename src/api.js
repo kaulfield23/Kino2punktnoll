@@ -40,6 +40,7 @@ export async function screeningsLoad(sId) {
     try {
         const response = await fetch(path + `${sId}`)
         const payload = await response.json();
+        // console.log("Stringify:" + JSON.stringify(payload.data));
         return payload.data;
     } catch (error) {
         console.log("oh no 😢");
