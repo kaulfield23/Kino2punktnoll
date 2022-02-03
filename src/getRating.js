@@ -3,7 +3,8 @@ import api from "./api.js";
 //function that returns only rates from APIs
 export async function getAverageRating(movieId) {
   let result = null;
-  const reviews = await api.fetchReviews(movieId); // review doesnt have imdb id
+  const payload = await api.fetchReviews(movieId); // review doesnt have imdb id
+  const reviews = payload.filter((word) => word.attributes.verified == true);
 
   if (reviews.length >= 5) {
     reviews.map((obj) => {

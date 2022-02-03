@@ -1,4 +1,5 @@
 import loadMovieReviews from "./fetch.js";
+let url = window.location.href;
 
 const populateReviews = async (data) => {
   const container = document.querySelector(".reviews");
@@ -29,7 +30,10 @@ const createPageButtons = (data) => {
   nextBtn.innerText = "Next";
   nextBtn.addEventListener("click", () => {
     data.pageCount > data.page
-      ? renderReviews(window.location.href.slice(-1), parseInt(data.page) + 1)
+      ? renderReviews(
+          url.slice(url.lastIndexOf("/")).slice(1),
+          parseInt(data.page) + 1
+        )
       : null;
   });
 
@@ -38,7 +42,10 @@ const createPageButtons = (data) => {
   prevBtn.innerText = "Previous";
   prevBtn.addEventListener("click", () => {
     data.page > 1
-      ? renderReviews(window.location.href.slice(-1), parseInt(data.page) - 1)
+      ? renderReviews(
+          url.slice(url.lastIndexOf("/")).slice(1),
+          parseInt(data.page) - 1
+        )
       : null;
   });
 
@@ -64,4 +71,4 @@ const renderReviews = async (id, page = 1) => {
   createPageButtons(reviews.meta.pagination);
 };
 
-renderReviews(window.location.href.slice(-1));
+renderReviews(url.slice(url.lastIndexOf("/")).slice(1));
