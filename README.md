@@ -39,6 +39,10 @@
 | `page` | Integer | query | Page number of the results to fetch. Default: `1` |
 | `pageSize` | Integer | query | Results per page. Default: `20` |
 
+## Rating
+**GET:** `/movies/{id}/rating`
+`returns average rating of movie.`
+
 ## Reviews
 
 **POST:**  `/movies/{id}/reviews` 
@@ -62,9 +66,22 @@ Request Body-required
 }
 ```
 `Status: 401`
+```
 Unauthorized
 ```
 
+## Log in
+**POST:** `login/getUser`
+
+`Status: 201 OK`
+
+```
+Request headers
+{
+    "Content-Type": "application/json",
+    Authorization: "Basic " + btoa(name + ":" + password),
+},
+```
 
 # Mötesanteckningar
 
