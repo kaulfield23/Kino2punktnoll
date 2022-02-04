@@ -97,7 +97,19 @@ returns all upcoming screenings for one movie, id, time & date and what room.
 ```
 
 # Mötesanteckningar
+Möte 04-22-01: Medverkande Johan, Haeju, Pontus, Carola, Roger
 
+Johan: Helt färdig med post-funktion, serverlogiken och inputvalidering. Mergat postreview till main.
+
+Haeju: Gjort klart en login/logout-funktion med JWT och testning.
+
+Pontus: Gjort klart med sina test och Github Actions automatiska tester.
+
+Carola: Gjort klart testet för onescreening, dvs visning för varje enskild film. 
+
+Roger: Gör om sitt arbete pga dataförlust. Färdig för merge innan deadline
+
+----------------------------------------------------------------------------
 22-01-25 Möte:
 Deltagare:
 Johan
