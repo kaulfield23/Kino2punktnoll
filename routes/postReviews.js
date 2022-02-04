@@ -21,7 +21,6 @@ router.post("/", async (req, res) => {
   };
 
   if (
-    Boolean(token !== null) &&
     Boolean(req.body.data.comment) &&
     Boolean(req.body.data.author) &&
     Boolean(req.body.data.rating >= 0 && req.body.data.rating <= 5)
