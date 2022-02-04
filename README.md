@@ -82,6 +82,16 @@ Request headers
     Authorization: "Basic " + btoa(name + ":" + password),
 },
 ```
+## Screenings for one movie
+**GET:** `screenings/movies/{id}`
+
+```
+{[
+   "id": integer,
+   "time": date,
+   "room": string },
+]},
+```
 
 # Mötesanteckningar
 
