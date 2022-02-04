@@ -18,7 +18,7 @@ router.post("/", async (req, res) => {
   let token = JWT.decode(reqToken, "thisisapassword");
 
   if (token === null) {
-    res.status(401).end();
+    return res.status(401).end();
   }
 
   /* if (
