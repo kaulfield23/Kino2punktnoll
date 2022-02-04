@@ -85,11 +85,12 @@ Request headers
 ## Screenings for one movie
 **GET:** `screenings/movies/{id}`
 
+returns all upcoming screenings for one movie, id, time & date and what room. 
 ```
 {[
-   "id": integer,
-   "time": date,
-   "room": string },
+   "id": 51,
+   "time": "2022-02-05T19:00:00.000Z",
+   "room": "Stora salongen" },
 ]},
 ```
 
