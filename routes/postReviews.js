@@ -24,6 +24,8 @@ router.post('/', async (req, res) => {
     api.postData(postReview_url, req.body).then(() => {
       return res.status(201).end();
     });
+  } else {
+    return res.status(401).end();
   }
 });
 export default router;
