@@ -34,8 +34,8 @@ export async function fetchChosenMovie(id) {
 export async function fetchReviews(movieId) {
   const res = await fetch(
     url +
-    "/reviews" +
-    `?pagination[pageSize]=1000&filters[movie]=${movieId}&pagination[page]=1`
+      "/reviews" +
+      `?pagination[pageSize]=1000&filters[movie]=${movieId}&pagination[page]=1`
   );
   const payload = await res.json();
   return payload.data;
@@ -69,7 +69,7 @@ export async function postData(url, data) {
     });
     return response.json();
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     return { status: "failed" };
   }
 }

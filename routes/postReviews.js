@@ -1,16 +1,16 @@
-import fetch from 'node-fetch';
-import express from 'express';
-import api from '../src/api.js';
-import JWT from 'jsonwebtoken';
+import fetch from "node-fetch";
+import express from "express";
+import api from "../src/api.js";
+import JWT from "jsonwebtoken";
 
-const postReview_url = 'https://lernia-kino-cms.herokuapp.com/api/reviews';
+const postReview_url = "https://lernia-kino-cms.herokuapp.com/api/reviews";
 
 const router = express.Router();
 
 //Server logic to handle post from client and pass to CMS API
 //Server logic to handle post from client and pass to CMS API
 router.post("/", async (req, res) => {
-  res.status(201)
+  res.status(201);
   if (!req.headers["authorization"]) {
     return res.status(401).end();
   }
@@ -19,9 +19,8 @@ router.post("/", async (req, res) => {
 
   if (token === null) {
     res.status(401).end();
-  };
+  }
 
-  
   /* if (
     Boolean(token !== null) &&
     Boolean(req.body.data.comment) &&

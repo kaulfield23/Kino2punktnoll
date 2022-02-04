@@ -47,7 +47,7 @@ test("Post data when token is right", async () => {
   const testing = await request(app)
     .post("/api/movies/1/reviews")
     .set("Authorization", "bearer " + token)
-    .expect(200);
+    .expect(201);
 
   expect(mockPostData).toBeCalled();
   expect(mockPostData).toBeCalledWith(fakeURL, fakeData);
