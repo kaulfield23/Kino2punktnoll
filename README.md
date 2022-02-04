@@ -127,7 +127,6 @@ Som datakälla används samma CMS-API som tidigare, som nu utökats med funktion
 -Vi har bestämt vilket repo som ska användas.
 -Vi har delat upp uppgifterna som PBIs i Github Project
 
-https://whimsical.com/kino2punktnoll-T5ik9HaYsmXQCWErqMfae4
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 
