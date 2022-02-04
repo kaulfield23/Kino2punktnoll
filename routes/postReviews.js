@@ -10,6 +10,7 @@ const router = express.Router();
 //Server logic to handle post from client and pass to CMS API
 //Server logic to handle post from client and pass to CMS API
 router.post("/", async (req, res) => {
+  res.status(201)
   if (!req.headers["authorization"]) {
     return res.status(401).end();
   }
@@ -20,17 +21,19 @@ router.post("/", async (req, res) => {
     res.status(401).end();
   };
 
-  if (
+  
+  /* if (
+    Boolean(token !== null) &&
     Boolean(req.body.data.comment) &&
     Boolean(req.body.data.author) &&
     Boolean(req.body.data.rating >= 0 && req.body.data.rating <= 5)
   ) {
     api.postData(postReview_url, req.body).then(() => {
-      return res.status(201).end();
-    });
-  } else {
-    return res.status(401).end();
-  }
+      return res.status(201).end(); */
+
+  api.postData(postReview_url, req.body).then(() => {
+    return res.status(201).end();
+  });
 });
 export default router;
 /* 
