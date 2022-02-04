@@ -97,7 +97,7 @@ returns all upcoming screenings for one movie, id, time & date and what room.
 ```
 
 # Mötesanteckningar
-Möte 04-22-01: Medverkande Johan, Haeju, Pontus, Carola, Roger
+Möte 04-02-22: Medverkande Johan, Haeju, Pontus, Carola, Roger
 
 Johan: Helt färdig med post-funktion, serverlogiken och inputvalidering. Mergat postreview till main.
 
