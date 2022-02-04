@@ -2,7 +2,7 @@
 
 # API Documentation
 
-**Server:** ```https://floating-savannah-58511.herokuapp.com/api/ ```
+**Server:** ```https://floating-savannah-58511.herokuapp.com/api ```
 
 ## Movies
 
