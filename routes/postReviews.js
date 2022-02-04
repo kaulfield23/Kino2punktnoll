@@ -14,7 +14,11 @@ router.post('/', async (req, res) => {
   }
   const reqToken = req.headers['authorization'].split(' ')[1];
   let token = JWT.decode(reqToken, 'thisisapassword');
-
+  
+  if (token === null) {
+    res.status(401).end();
+  };
+  
   if (
     Boolean(token !== null) &&
     Boolean(req.body.data.comment) &&
