@@ -73,7 +73,7 @@ Unauthorized
 ## Log in
 **POST:** `login/getUser`
 
-`Status: 201 OK`
+`Status: 200 OK`
 
 ```
 Request headers
