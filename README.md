@@ -4,7 +4,7 @@
 * I made a log in / out function with JWT (saved token in local storage)
 * Learned how to build API with RESTful principle.
 * Learned how to use JWT.
-* Learned Supertest (integration testing)
+* Learned Supertest (integration testing), unit test with mocked api
 * Learned how to use Postman / Insomnia.
 
 
