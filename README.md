@@ -7,6 +7,7 @@
 * Learned Supertest (integration testing), unit test with mocked api
 * Learned how to use Postman / Insomnia.
 
+Node.js/express/handlebars/Jest
 
 # API Documentation
 
