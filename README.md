@@ -1,7 +1,7 @@
 # Kino2punktnoll
 ## Third group project from school. (Advancerad webbutveckling - JavaScript backend course)
 
-* I took the part to take rates from Movie API(my teachers') and return average rates of the movie if the reviews are less than 5. If reviews are more than 5, then it uses IMDBs rating.
+* I took the part to take rates from Movie API(my teachers') and return average rates of the movie if the reviews are more than 5. If reviews are less than 5, then it uses IMDBs rating.
 * I made a log in / out function with JWT (saved token in local storage)
 * ## What I learned
 * Learned how to build API with RESTful principle.
